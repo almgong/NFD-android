@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="net.named_data.nfd.WiFiDirectFragment">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:text="@string/fragment_wifidirect_title"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wd_switch"
+                    android:layout_weight="0.02" />
+            </LinearLayout>
+
+            <!-- Row for Group connection status -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_wifidirect_group_conn_status"
+                    android:layout_weight="0.10" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wd_group_conn_status_textview" />
+            </LinearLayout>
+
+            <!-- Row for IP address display -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/wd_ip_layout">
+                <TextView
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_wifidirect_curr_ip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wd_ip_address_textview" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Column of currently connected peers -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_wifidirect_available_peers"
+            android:layout_marginTop="10dp"/>
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wd_peers_listview">
+        </ListView>
+    </LinearLayout>
+</LinearLayout>
