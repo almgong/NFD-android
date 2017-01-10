@@ -25,6 +25,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -32,6 +33,7 @@ import com.intel.jndn.management.types.FaceStatus;
 import com.intel.jndn.management.types.RibEntry;
 
 import net.named_data.nfd.utils.G;
+import net.named_data.nfd.wifidirect.utils.NDNController;
 
 import java.util.ArrayList;
 
@@ -44,6 +46,7 @@ public class MainActivity extends ActionBarActivity
                FaceListFragment.Callbacks,
                RouteListFragment.Callbacks
 {
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -70,6 +73,11 @@ public class MainActivity extends ActionBarActivity
       //                                            DRAWER_ITEM_STRATEGIES));
       items.add(new DrawerFragment.DrawerItem(R.string.drawer_item_logcat, 0,
                                               DRAWER_ITEM_LOGCAT));
+
+      // ag TODO
+      items.add(new DrawerFragment.DrawerItem(R.string.drawer_item_wifidirect, 0, DRAWER_ITEM_WIFIDIRECT));
+      NDNController.getInstance();
+      Log.d("AG: ", "Preloading NDNController instance...");
 
       m_drawerFragment = DrawerFragment.newInstance(items);
 
@@ -157,6 +165,9 @@ public class MainActivity extends ActionBarActivity
         case DRAWER_ITEM_LOGCAT:
           fragment = LogcatFragment.newInstance();
           break;
+        case DRAWER_ITEM_WIFIDIRECT:
+          fragment = WiFiDirectFragment.newInstance();
+          break;
         default:
           // Invalid; Nothing else needs to be done
           return;
@@ -202,4 +213,7 @@ public class MainActivity extends ActionBarActivity
   public static final int DRAWER_ITEM_PING = 4;
   //public static final int DRAWER_ITEM_STRATEGIES = 4;
   public static final int DRAWER_ITEM_LOGCAT = 5;
+
+  // ag TODO
+  public static final int DRAWER_ITEM_WIFIDIRECT = 6;
 }

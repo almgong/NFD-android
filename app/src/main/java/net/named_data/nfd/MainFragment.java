@@ -72,7 +72,7 @@ public class MainFragment extends Fragment {
   {
     @SuppressLint("InflateParams")
     View v =  inflater.inflate(R.layout.fragment_main, null);
-
+    
     m_nfdStartStopSwitch = (Switch)v.findViewById(R.id.nfd_start_stop_switch);
     m_nfdStartStopSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override
